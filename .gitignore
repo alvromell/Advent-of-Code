@@ -349,3 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /AdventOfCodeFoundation/Inputs
+/AdventOfCodeFoundation/Properties/launchSettings.json
