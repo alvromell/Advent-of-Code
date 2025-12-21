@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCodeFoundation.Solvers._2025
 {
-    [Solves("2025-12-7")]
+    [Solves("2025/12/7")]
     internal class Day7Solver2025 : ISolver
     { 
         private long iterations = 0;
