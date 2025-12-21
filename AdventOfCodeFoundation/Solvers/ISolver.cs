@@ -8,11 +8,11 @@ namespace AdventOfCodeFoundation.Solvers
         public Task<string> SolvePartOne(Input input);
         public Task<string> SolvePartTwo(Input input);
 
-        public async Task Run(DateOnly challengeDate)
+        public async Task Run(DateOnly challengeDate, bool test = false)
         {
-            Output.Line($"Solving {challengeDate} with {GetType().Name}...\n");
+            Output.Line($"Solving {challengeDate} with {GetType().Name}, using {(test ? "test" : "real")} data...\n");
 
-            var input = new Input(challengeDate);
+            var input = new Input(challengeDate, test);
             await SolvePart(1, input);
             await SolvePart(2, input);
         }
