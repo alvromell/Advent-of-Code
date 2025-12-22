@@ -9,9 +9,9 @@
             file = fileName;
         }
 
-        public Input(DateOnly challengeDate)
+        public Input(DateOnly challengeDate, bool test)
         {
-            file = $"../../../Inputs/{challengeDate.Year}/{challengeDate.Day:D2}/input.txt";
+            file = $"../../../Inputs/{challengeDate.Year}/{challengeDate.Day:D2}/input{(test ? "_test":"")}.txt";
         }
 
         public async Task<string> GetRawInput()

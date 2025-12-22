@@ -12,10 +12,11 @@ namespace AdventOfCodeFoundation
                 return;
 
             var challengeDate = GetChallengeDate(args);
+            var testmode = ContainsTest(args);
             var solvers = GetSolvers(challengeDate);
 
             foreach (var solver in solvers)
-                await solver.Run(challengeDate);            
+                await solver.Run(challengeDate, testmode);            
         }
 
         private static DateOnly GetChallengeDate(string[] args)
@@ -23,7 +24,7 @@ namespace AdventOfCodeFoundation
             if (args.Any())
             {
                 if (args.Length > 1)
-                    Output.Warning($"Multiple arguments provided. Ignoring all arguments after '{args[0]}'...");
+                    Output.Warning($"Multiple arguments provided. Make sure date is the first argument! Only parsing '{args[0]}'...");
 
                 return ParseArgument(args[0]);
             }                
@@ -42,7 +43,10 @@ namespace AdventOfCodeFoundation
         }
 
         private static bool ContainsHelp(string[] args)
-        => args.Intersect(new[] { "?", "h", "-h", "--h", "help", "-help", "--help" }).Any();        
+            => args.Intersect(new[] { "?", "h", "-h", "--h", "help", "-help", "--help" }).Any();
+
+        private static bool ContainsTest(string[] args)
+            => args.Intersect(new[] { "t", "-t", "--t", "test", "-test", "--test" }).Any();
 
         private static DateOnly ParseArgument(string arg)
         {
