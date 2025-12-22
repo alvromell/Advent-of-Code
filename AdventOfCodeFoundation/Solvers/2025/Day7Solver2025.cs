@@ -10,7 +10,6 @@ namespace AdventOfCodeFoundation.Solvers._2025
     [Solves("2025/12/7")]
     internal class Day7Solver2025 : ISolver
     { 
-        private long iterations = 0;
         private Dictionary<(int, int), long> _memo = new Dictionary<(int, int), long>();
         
         public Task<string> SolvePartOne(Input input)
